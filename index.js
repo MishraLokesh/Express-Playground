@@ -1,11 +1,13 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const members = require('./members')
 const logger = require('./middleware/loggers')
 
 const app = express()
 
+// Body Parser Middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 // Basic way to setup get request
 // app.get('/', (req, res) => {
@@ -19,13 +21,8 @@ app.use(logger)
 // Set static folder    //app.use() -> to use middleware
 app.use(express.static(path.join(__dirname, 'public')))
 
-
-// GETs all members (could be the same as retrieving data from database, except here we are hard coding in js object)
-app.get('/api/members', (req, res) => {
-  res.json(members)
-})
-
-
+// Members API routes
+app.use('/api/members', require('./routes/api/members'))
 
 
 

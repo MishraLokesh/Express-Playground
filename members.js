@@ -14,14 +14,14 @@ const members = [
   {
     id: 3,
     name: 'Samar',
-    email: 'samar.naqvi2@gmail.com',
+    email: 'samarrrrrrrrrrrrrrrr@gmail.com',
     status: 'active'
   },
   {
     id: 1,
     name: 'Ayush',
     email: 'ayush_khare@gmail.com',
-    status: 'active'
+    status: 'inactive'
   }
 ]
 
