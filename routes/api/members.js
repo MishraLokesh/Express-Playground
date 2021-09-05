@@ -19,6 +19,7 @@ router.get('/:id', (req, res) => {
   }
 })
 
+
 // CREATE a new member (use POST this time)
 router.post('/', (req, res) => {
   const newMember = {
@@ -27,14 +28,13 @@ router.post('/', (req, res) => {
     email: req.body.email,
     status: 'active'
   };
-
   if(!req.body.name || !req.body.email) {
     res.status(400).json({ msg: 'please enter the name and email' })
   }
-  
   else {
     members.push(newMember)
-    res.json(members)
+    // res.json(members)
+    res.redirect('/')  //to redirect when form details are entered
   }
 })
 
